@@ -1,0 +1,493 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Roboto&display=swap');
+
+/* -------------------Custom Properties-----------*/
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+} 
+
+*{
+    outline: none;
+    /* border-style: dashed; */
+}
+
+*:not(.slick-track):not(.slick-list) {
+    transition: 0.4s;
+}
+
+:root {
+    --ff-primary: "Roboto", "Helvetica", "Sans-serif";
+    --ff-secondary: "Playfair Display", serif;
+    
+    --fw-reg: 300;
+    --fw-bold: 900;
+    
+    --clr-light: #fff;
+    --clr-dark: #303030;
+    --clr-accent-title: #107dd6;
+    --clr-accent-icon: #c23843;
+    --clr-paragraph: #a0a09e;
+    
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+    
+    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
+          0.125em 0.125em 0.25em rgba(0,0,0,.15);
+}
+
+/* -------------start: global styles --------------*/
+
+body {
+    margin: 0;
+    padding: 0;
+    border-style: solid;
+    border-width: 1px;
+    background: #28262e;
+    font-size: var(--fs-body);
+    font-family: var(--ff-primary);
+    /* font-weight: 400; */
+    /* color: var(--clr-light); */
+    line-height: 1.7;
+}
+
+/* Scrollbar Properties */
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--clr-accent);
+    border-radius: 10px;
+}
+
+::-webkit-slider-thumb:hover{
+    background-color: var(--clr-accent);
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    /* font-family: var(--ff-secondary); */
+    font-weight: var(--fw-bold);
+}
+
+h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    /* color: #b30000; */
+    font-family: 'Monserrat', sans-serif;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--clr-accent-title);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    font-family: var(--ff-secondary);
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+h3 {
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+h4 {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+h5 {
+    font-size: 1rem;
+    font-family: var(--ff-secondary);
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+button.rounded {
+    background: #f69314;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 30px;
+    padding: 10px 30px;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+p.large-paragraph {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+.line{
+    width: 10%;
+    margin-bottom: 3rem;
+    background-color: var(--clr-accent-title);
+}
+
+/* -----------------end: global styles----------------- */
+
+/* -------------- Start Header -------------- */
+
+#header-hero-container {
+    min-height: 600px;
+    height: calc(100vh);
+    position: relative;
+}
+
+header {
+    background: transparent;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--clr-accent);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+
+#logo {
+    font-family: "Roboto", "Helvetica", "Sans-serif";
+    font-size: 1.7rem;
+    font-weight: var(--fw-bold);
+    color: var(--clr-accent-title);
+    text-shadow: .5px .5px var(--clr-light);
+    /* color: #5eaef0; */
+    text-decoration: none;
+    position: relative;
+    top: 4px;
+}
+
+.hamburger-menu {
+    background-color: transparent;
+    border: 1px solid #fff;
+    padding: 3px 5px;
+    width: 30px;
+    cursor: pointer;
+    margin-top: 10px;
+    display: none;
+}
+
+.hamburger-menu .strip {
+    display: block;
+    height: 1px;
+    background-color: #fff;
+    margin: 4px 0;
+}
+
+header ul {
+    list-style-type: none;
+}
+
+header ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+#close-flyout {
+    display: none;
+}
+
+header ul li a {
+    color: rgb(201, 197, 197);
+    font-size: 16px;
+    text-decoration: none;
+}
+
+header ul.is-sticky li a {
+    color: #000;
+}
+
+header ul li a:hover,
+header ul li a.active {
+    color: var(--clr-light);
+    font-weight: var(--fw-bold);
+}
+
+header ul.is-sticky li a:hover,
+header ul.is-sticky li a.active {
+    color: #f69314;
+}
+
+/* --------------------- end: header styles -------------------*/
+
+/* -----------------start: hero section styles-------------------- */
+
+#hero {
+    background: url('https://cdn.pixabay.com/photo/2019/02/06/16/32/architect-3979490_960_720.jpg') center center no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+}
+
+#hero .fade {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    /* background: rgba(52, 58, 64, 0.9); */
+    background-color: #28262e;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+#hero .hero-text {
+    position: absolute;
+    top: 50%;
+    margin: -75px auto 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    color: var(--clr-light);
+    width: 700px;
+    text-align: center;
+}
+
+#hero .hero-text p {
+    line-height: 1.5em;
+    font-weight: var(--fw-reg);
+    font-size: 1rem;
+}
+
+/* ---------------- end: hero section styles ---------------- */
+
+/* ----------------- start: Welcome Styles ---------------- */
+#welcome {
+    padding: 3rem 0;
+    /* background: #f8f9fa; */
+}
+
+.welcome-box{
+    background-color: #2f2e33;
+    padding: 10px;
+    
+}
+
+#welcome h2 {
+    margin-bottom: 1rem;
+}
+
+#welcome .flex > div {
+    width: 20%;
+}
+
+#welcome h4 {
+    color: var(--clr-light);
+    margin-top: 1rem;
+}
+
+#welcome span.fas {
+    /* color: #f69314; */
+    color: var(--clr-accent-icon);
+    font-size: 35px;
+    margin-top: 1rem;
+}
+
+#welcome p{
+    color: var(--clr-paragraph);
+}
+
+/* ----------------- end: Welcome Stiles ------------------ */
+
+/* start: services styles */
+#services {
+    /* background: #f8f9fa;*/
+    padding: 6rem 0;
+    margin: 8rem 0;
+    background-color: #2f2e33;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#services h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+#services .flex {
+    flex-wrap: wrap;
+}
+
+#services .flex > div {
+    width: 30%;
+    margin-bottom: 2rem;
+}
+
+#services .flex > div .fas {
+    /* color: #f69314; */
+    color: var(--clr-accent-icon);
+    font-size: 40px;
+    float: left;
+    margin-top: 15px;
+    width: 20%;
+    text-align: center;
+}
+
+#services .flex > div .services-card-right {
+    float: right;
+    width: 75%;
+}
+
+/* ---------------- end: services styles --------------------- */
+
+/* ------------ start: projects styles ---------------- */
+#projects {
+    margin: 4rem 0 8rem;
+    position: relative;
+}
+
+#projects h2 {
+    margin-bottom: 3rem;
+}
+
+#projects .container {
+    position: relative;
+}
+
+#projects .container:before {
+    content: "/";
+    position: absolute;
+    right: 80px;
+    top: 18px;
+    /* color: #999; */
+    color: var(--clr-light);
+}
+
+#projects-slider a.slick-arrow {
+    /* color: #000; */
+    color: var(--clr-accent-title);
+    position: absolute;
+    top: -78px;
+    right: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    text-decoration: none;
+}
+
+#projects-slider a.slick-prev {
+    right: 80px;
+}
+
+#projects-slider .slick-slide {
+    padding: 0 15px;
+}
+
+#projects-slider img {
+    width: 100%;
+    display: block;
+}
+
+#projects-slider .project-details {
+    padding: 1rem;
+}
+
+#projects-slider .project-name {
+    font-size: 1.2rem;
+    /* color: #343a40; */
+    color: var(--clr-light);
+    font-weight: 800;
+    margin: 0 0 0.5rem 0;
+}
+
+#projects-slider .property-details span {
+    font-size: 0.8rem;
+    padding-right: 15px;
+}
+
+#projects-slider .project-details span.year {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#projects-slider .project-details span.city {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+#projects-slider .project-details span.year,
+#projects-slider .project-details span.city {
+    border-right: 1px solid #888;
+}
+
+/* end: projects styles */
+
+/* ----------------- start: About Us Styles ---------------- */
+#about-us {
+    padding: 3rem 0;
+    /* background: #f8f9fa; */
+}
+
+#about-us h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#about-us .flex {
+    flex-wrap: wrap;
+}
+
+#about-us .flex > div {
+    width: 30%;
+    margin-bottom: 2rem;
+}
+
+#about-us .flex > div .fas {
+    color: #c23843;
+    font-size: 20px;
+    float: left;
+    margin-top: 40px;
+    width: 10%;
+    text-align: center;
+}
+
+#about-us .flex > div .about-us__number {
+    float: left;
+    width: 15%;
+}
+.about-us__number > h3{
+    color: #c23843;
+    font-size: 4rem;
+}
+.about-us__topic > p{
+    font-size: 2rem;
+    letter-spacing: 1.8px;
+    line-height: 30px;
+    margin-top: 25px;
+}
+#about-us .flex > div .about-us__topic {
+    float: none;
+    /* width: 50%; */
+}
+
+/* ----------------- end: Welcome Stiles ------------------ */
